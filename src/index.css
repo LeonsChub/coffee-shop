@@ -79,10 +79,7 @@ code {
 }
 
 .main-content{
-  background-image: url("./images/coffee-background.jpg");
-  background-position: top;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-color:var(--amber-800);
 
   width: 90%;
 
@@ -109,10 +106,16 @@ code {
 .shop-btn{
   width: fit-content;
   font-size: 1.5em;
+  background-color: var(--amber-500) !important;
+  border: 1px solid var(--amber-500) !important;
+}
+
+.shop-btn:hover{
+  background-color: var(--amber-600) !important;
+  border: 1px solid var(--amber-400) !important;
 }
 
 .footer{
-  width: 98.8vw;
   background-color: var(--amber-700);
 }
 
