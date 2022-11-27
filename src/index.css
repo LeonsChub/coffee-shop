@@ -1,13 +1,119 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+:root{
+  --amber-900:#78350f;
+  --amber-800:#92400e;
+  --amber-700:#b45309;
+  --amber-600:#d97706;
+  --amber-500:#f59e0b;
+  --amber-400:#fbbf24;
+  --amber-300:#fcd34d;
+  --amber-200:#fef3c7;
+}
+
+.navbar{
+  padding: 1em;
+  background-color: var(--amber-900);
+}
+.App{
+  background-color: var(--amber-200);
+}
+
+.main-title{
+  text-align: center;
+
+}
+
+.main-content{
+  background-image: url("./images/coffee-background.jpg");
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  width: 90%;
+
+  margin-inline: auto;
+
+  position: relative;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#product-carousel{
+  width: 50%;
+  margin-inline: auto;
+}
+
+#product-carousel img{
+  width: clamp(500px,600px,700px);
+  height: clamp(350px,400px,450px)
+}
+
+.shop-btn{
+  width: fit-content;
+  font-size: 1.5em;
+}
+
+.footer{
+  width: 98.8vw;
+  background-color: var(--amber-700);
+}
+
+
