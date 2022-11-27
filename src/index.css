@@ -99,8 +99,8 @@ code {
 }
 
 #product-carousel img{
-  width: clamp(500px,600px,700px);
-  height: clamp(350px,400px,450px)
+  width: 600px;
+  height: 420px;
 }
 
 .shop-btn{

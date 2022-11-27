@@ -1,4 +1,3 @@
-import React from 'react';
 import ProductCarousel from './ProductCarousel';
 import Button from 'react-bootstrap/Button';
 
@@ -12,6 +11,7 @@ function FrontPage() {
           Shop NOW!
         </Button>
       </div>
+      
     </div>
   );
 }

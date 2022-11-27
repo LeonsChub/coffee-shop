@@ -2,9 +2,9 @@ import React from 'react';
 
 import Carousel from 'react-bootstrap/Carousel';
 
-import productImage1 from '../images/product-carousel-1.jpg';
-import productImage2 from '../images/product-carousel-2.jpg';
-import productImage3 from '../images/product-carousel-3.jpg';
+import productImage1 from '../../images/product-carousel-1.jpg';
+import productImage2 from '../../images/product-carousel-2.jpg';
+import productImage3 from '../../images/product-carousel-3.jpg';
 
 function productCarousel() {
   return (

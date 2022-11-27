@@ -1,12 +1,14 @@
-import FrontPage from './components/FrontPage';
-import NavHeader from './components/NavHeader'
+// import FrontPage from "./components/HomePage/FrontPage";
+import NavHeader from "./components/Reusables/NavHeader";
+// import {BrowserRouter, Route ,Routes,Link} from 'react-router-dom'
+// import Home from './components/deleteLater/Home'
+// import Contact from './components/deleteLater/Contact'
+// import About from './components/deleteLater/About'
 
 function App() {
   return (
     <div className="App">
-      <NavHeader />
-      <FrontPage></FrontPage>
-      <div className="footer p-2 text-white" >©Leon Pavlenko 2022</div>
+      <NavHeader/>
     </div>
   );
 }
