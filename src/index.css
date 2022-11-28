@@ -64,13 +64,16 @@ code {
   --amber-300:#fcd34d;
   --amber-200:#fef3c7;
 }
+Link{
+  text-decoration: none;
+}
 
 .navbar{
   padding: 1em;
   background-color: var(--amber-900);
 }
-.App{
-  background-color: var(--amber-200);
+#root{
+  background-color: var(--amber-300);
 }
 
 .main-title{
@@ -79,15 +82,8 @@ code {
 }
 
 .main-content{
-  background-color:var(--amber-800);
-
-  width: 90%;
-
-  margin-inline: auto;
-
-  position: relative;
-  top: 0;
-
+  background-color:var(--amber-600);
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,17 +107,15 @@ code {
 .shop-btn{
   width: fit-content;
   font-size: 1.5em;
-  background-color: var(--amber-500) !important;
+  background-color: var(--amber-600) !important;
   border: 1px solid var(--amber-500) !important;
 }
 
 .shop-btn:hover{
-  background-color: var(--amber-600) !important;
+  background-color: var(--amber-500) !important;
   border: 1px solid var(--amber-400) !important;
 }
 
 .footer{
-  background-color: var(--amber-700);
+  background-color: var(--amber-800);
 }
-
-

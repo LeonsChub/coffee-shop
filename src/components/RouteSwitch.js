@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import NavHeader from '../components/Reusables/NavHeader';
+import NavHeader from './Reusables/NavHeader/NavHeader';
 import FrontPage from '../components/HomePage/FrontPage';
 import ShopPage from './ShopPage/ShopPage';
 

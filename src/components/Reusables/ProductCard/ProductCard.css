@@ -1,0 +1,40 @@
+:root{
+    --amber-900:#78350f;
+    --amber-800:#92400e;
+    --amber-700:#b45309;
+    --amber-600:#d97706;
+    --amber-500:#f59e0b;
+    --amber-400:#fbbf24;
+    --amber-300:#fcd34d;
+    --amber-200:#fef3c7;
+  }
+  p{
+    margin: 0;
+  }
+.product-card{
+    text-align: center;
+    background-color: var(--amber-700);
+    padding: clamp(1em,1.5em,2em);
+
+    margin-top: 0.5em;
+
+}
+
+.product-card > #card-image{
+    max-width: 100%;
+    height: 100%;
+    border-radius: 5%;
+}
+
+.product-card > #buy-btn{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.product-card > #product-description{
+    margin-top: 0.75em;
+    font-size: 1.3rem;
+
+}
