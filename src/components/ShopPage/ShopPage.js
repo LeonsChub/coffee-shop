@@ -1,5 +1,4 @@
 import React from 'react';
-import NavHeader from '../Reusables/NavHeader';
 
 function ShopPage() {
   return (
