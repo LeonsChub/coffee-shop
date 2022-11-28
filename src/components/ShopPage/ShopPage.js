@@ -29,6 +29,34 @@ function ShopPage() {
                     <ProductCard url={productImg1} />
                   </Col>
                 </Row>
+                <Row>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                  <Col xs={6} md={3}>
+                    <ProductCard url={productImg1} />
+                  </Col>
+                </Row>
               </Container>
             </Col>
           </Row>
