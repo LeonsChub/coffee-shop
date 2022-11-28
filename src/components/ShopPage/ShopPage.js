@@ -16,44 +16,28 @@ function ShopPage() {
             <Col xs={12} md={10} id="content-wrap" className="mt-3">
               <Container fluid>
                 <Row>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
-                </Row>
-                <Row>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
-                  <Col xs={6} md={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={6} md={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={3}>
+                  <Col xs={6} md={4} lg={3}>
                     <ProductCard url={productImg1} />
                   </Col>
                 </Row>

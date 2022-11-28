@@ -22,10 +22,6 @@ a{
 #sidebar-wrapper{
     min-height: 100vh !important;
     width: 100vw;
-    -webkit-transition: margin .25s ease-out;
-    -moz-transition: margin .25s ease-out;
-    -o-transition: margin .25s ease-out;
-    transition: margin .25s ease-out;
 }
 
 #sidebar-wrapper .sidebar-heading {
