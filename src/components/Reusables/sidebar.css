@@ -47,7 +47,17 @@ a{
         display: none;
     }
 }
-.sidebar-link{
+@media only screen and (max-width: 992px) {
+    .sidebar{
+        width: calc(25vw);
+    }
+    .brand-header{
+        margin-block: 1em;
+    }
+
+}
+.sidebar-link,
+.sub-menu-link{
     border-left: 5px solid var(--amber-600);
     display: flex;
     align-items: baseline;
@@ -58,12 +68,30 @@ a{
 .sidebar-link.retractable{
     border-left: none;
 }
-.sidebar-link:hover:not(.retractable){
+.sidebar-link:hover:not(.retractable),
+.sub-menu-link:hover{
     border-left: 5px solid var(--amber-500);
     background-color: var(--amber-800);
     color: beige;
 }
 span.sidebar-menu-nav-title > h6{
     margin: 0;
-    font-size: 0.8em;
+    font-size: 1em;
+}
+.sidebar-link.sidebar-link.retractable{
+    margin-top: 1em;
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+.sidebar-menu-sub-collapse.show,
+.sidebar-menu-sub-collapse.collapsing{
+    display: flex;
+}
+.sub-menu-link{
+    font-size: 0.9em;
+    margin-left: 1em;
+    width: 95%;
+    
+    align-items: center;
 }

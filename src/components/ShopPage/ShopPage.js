@@ -10,10 +10,10 @@ function ShopPage() {
       <div className="main-content">
         <Container fluid>
           <Row>
-            <Col xs={0} md={2} id="sidebar-wrap" className="p-0">
+            <Col xs={0} md={3} lg={2} id="sidebar-wrap" className="p-0">
               <Sidebar />
             </Col>
-            <Col xs={12} md={10} id="content-wrap" className="mt-3">
+            <Col xs={12} md={9} lg={10} id="content-wrap" className="mt-3">
               <Container fluid>
                 <Row>
                   <Col xs={6} md={4} lg={3}>

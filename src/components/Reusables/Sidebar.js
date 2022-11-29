@@ -1,7 +1,8 @@
 import React from 'react';
 // import { Nav } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
-// import {DiAndroid} from 'react-icons//di'
+import {BsCart4} from 'react-icons//bs'
+import {MdClear} from 'react-icons//md'
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
 import './sidebar.css';
@@ -36,21 +37,30 @@ function sidebar() {
           </SidebarMenu.Nav.Title>
         </SidebarMenu.Nav.Link>
         <SidebarMenu.Nav/>
-        <SidebarMenu.Sub className='sidebar-link retractable'>
-          <SidebarMenu.Sub.Toggle>
+        <SidebarMenu.Sub>
+          <SidebarMenu.Sub.Toggle className='sidebar-link retractable'>
             <SidebarMenu.Nav.Icon />
             <SidebarMenu.Nav.Title>
-              <h6>lil menu</h6>
+              <h6>Shopping Cart (!)</h6>
             </SidebarMenu.Nav.Title>
           </SidebarMenu.Sub.Toggle>
           <SidebarMenu.Sub.Collapse>
             <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link>
+              <SidebarMenu.Nav.Link className='sub-menu-link'>
                 <SidebarMenu.Nav.Icon>
-                  <p>png</p>
+                  <BsCart4/>
                 </SidebarMenu.Nav.Icon>
                 <SidebarMenu.Nav.Title>
-                  <h6>hellllooooo</h6>
+                  <h6 className='mx-2'>Shopping Cart</h6>
+                </SidebarMenu.Nav.Title>
+              </SidebarMenu.Nav.Link>
+
+              <SidebarMenu.Nav.Link className='sub-menu-link'>
+                <SidebarMenu.Nav.Icon>
+                  <MdClear/>
+                </SidebarMenu.Nav.Icon>
+                <SidebarMenu.Nav.Title>
+                  <h6 className='mx-2'>Clear Cart</h6>
                 </SidebarMenu.Nav.Title>
               </SidebarMenu.Nav.Link>
             </SidebarMenu.Nav>
