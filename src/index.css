@@ -69,16 +69,16 @@ Link{
 }
 
 .navbar{
-  padding: 1em;
+  z-index: 10;
   background-color: var(--amber-900);
 }
-#root{
-  background-color: var(--amber-300);
+#header-brand{
+  width: 16.667%;
 }
 
-.main-title{
-  text-align: center;
 
+#root{
+  background-color: var(--amber-300);
 }
 
 .main-content{
@@ -117,5 +117,6 @@ Link{
 }
 
 .footer{
-  background-color: var(--amber-800);
+  background-color: var(--amber-700);
+  text-align: center;
 }
