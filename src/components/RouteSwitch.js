@@ -4,7 +4,7 @@ import FrontPage from '../components/HomePage/FrontPage';
 import ShopPage from './ShopPage/ShopPage';
 import ProductPage from './productPage/ProductPage';
 
-import { useReducer, useEffect } from 'react';
+import { useReducer } from 'react';
 
 export const ACTIONS = {
   addItemsToCart: 'ADDITEMS'
@@ -23,11 +23,6 @@ function reducer(state, action) {
 function RouteSwitch() {
   // eslint-disable-next-line no-unused-vars
   const [state, dispatch] = useReducer(reducer, []);
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
   return (
     <BrowserRouter>
       <NavHeader />

@@ -1,7 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
+
+import {BsExclamationCircle as WarningSVG} from 'react-icons//bs'
+
+console.log(WarningSVG);
 
 import PRODUCTS from '../data';
 import { ACTIONS } from '../RouteSwitch';
@@ -15,20 +23,38 @@ function filterByName(product, name) {
   return false;
 }
 
+const renderWarnOverlay = (props) => (
+  <Tooltip id="button-tooltip" {...props}>
+    Please enter an amount greater than 0.
+  </Tooltip>
+)
+
 function ProductPage(props) {
   const handleAddCart = props.handleState;
   const [itemAmount, setItemAmount] = useState(0);
 
   const params = useParams();
   const [productToDom] = PRODUCTS.filter((product) => filterByName(product, params.name));
+  const [warn,setWarn] = useState(false);
 
-  // function handleCartAdding() {
-  //   if (itemAmount > 0) {
-  //     alert('added to cart');
-  //   } else {
-  //     alert('invalid item amount!');
-  //   }
-  // }
+  function conditionalRenderWarning(){
+    if(warn){
+      return (
+        <OverlayTrigger
+            placement='top'
+            overlay={renderWarnOverlay}>
+
+              <span id="warning">
+                <WarningSVG className=''/>
+              </span>
+
+        </OverlayTrigger>);
+      }
+    else{
+      return null;
+    }
+  }
+  
 
   return (
     <div id="product-content-wrap" className="d-flex align-items-center flex-column">
@@ -44,6 +70,9 @@ function ProductPage(props) {
           </p>
 
           <div className="cart-add-wrap">
+            
+            {conditionalRenderWarning()}
+            
             <button
               id="detract-from-cart"
               onClick={() => {
@@ -64,11 +93,16 @@ function ProductPage(props) {
 
             <Button
               id="cart-btn"
-              variant="outline-warning"
+              variant="outline-success"
               className="text-light"
               onClick={() => {
-                handleAddCart({ type: ACTIONS.addItemsToCart });
-                setItemAmount(0);
+                if (itemAmount > 0) {
+                  handleAddCart({ type: ACTIONS.addItemsToCart });
+                  setItemAmount(0);
+                }
+                else{
+                  setWarn(true);
+                }
               }}>
               Add to Cart
             </Button>
