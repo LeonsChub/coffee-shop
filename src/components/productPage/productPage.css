@@ -22,7 +22,7 @@ img{
 
 .split{
     background-color:var(--amber-600) ;
-    width: 55%;
+    width: clamp(400px,55%,800px);
     min-height: 250px;
 
     padding: 0.5em;
@@ -65,7 +65,7 @@ img{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: max(250px,50%);
+    width: max(300px,50%);
 
     position:relative;
     bottom: -8px;
@@ -127,7 +127,7 @@ img{
 
 .cart-add-wrap > #cart-btn{
     margin-left: 8px;
-    width: fit-content;
+    width: 150px;
     
 }
 

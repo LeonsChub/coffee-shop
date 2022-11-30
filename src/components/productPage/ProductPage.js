@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 import PRODUCTS from '../data';
+import { ACTIONS } from '../RouteSwitch';
 
 import './productPage.css';
 
@@ -15,13 +16,19 @@ function filterByName(product, name) {
 }
 
 function ProductPage(props) {
-  const incrementFunc = props['handle-func'].incrementCount;
-  const decrementFunc = props['handle-func'].decrementCount;
-  // const incrementFunc = handleFuncs.incrementCount;
-  // const decrementFunc = handleFuncs.decrementCount;
+  const handleAddCart = props.handleState;
+  const [itemAmount, setItemAmount] = useState(0);
 
   const params = useParams();
   const [productToDom] = PRODUCTS.filter((product) => filterByName(product, params.name));
+
+  // function handleCartAdding() {
+  //   if (itemAmount > 0) {
+  //     alert('added to cart');
+  //   } else {
+  //     alert('invalid item amount!');
+  //   }
+  // }
 
   return (
     <div id="product-content-wrap" className="d-flex align-items-center flex-column">
@@ -36,21 +43,33 @@ function ProductPage(props) {
             distinctio odit incidunt sit nesciunt, ex sed commodi.
           </p>
 
-          <p>
-            نزیکی لە موسڵمانی کوردستان و بۆ ھەڵدانەوەی چەند لوڕستان، و خەڵکانێکی چاخی ماوەیەک ئەویش
-            جار دەشتەکانی کوردستان باری ساڵ بەمجۆرە
-          </p>
-
           <div className="cart-add-wrap">
-            <button id="detract-from-cart" onClick={incrementFunc()}>
+            <button
+              id="detract-from-cart"
+              onClick={() => {
+                if (itemAmount > 0) {
+                  setItemAmount((p) => p - 1);
+                }
+              }}>
               -
             </button>
-            <p id="cart-amount">0</p>
-            <button id="add-to-cart" onClick={console.log('uouo')}>
+            <p id="cart-amount">{itemAmount}</p>
+            <button
+              id="add-to-cart"
+              onClick={() => {
+                setItemAmount((p) => p + 1);
+              }}>
               +
             </button>
 
-            <Button id="cart-btn" variant="outline-warning" className="text-light">
+            <Button
+              id="cart-btn"
+              variant="outline-warning"
+              className="text-light"
+              onClick={() => {
+                handleAddCart({ type: ACTIONS.addItemsToCart });
+                setItemAmount(0);
+              }}>
               Add to Cart
             </Button>
           </div>
