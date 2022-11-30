@@ -9,9 +9,6 @@
     --amber-200:#fef3c7;
 
 }
-a{
-    text-decoration: none;
-}
 #sidebar-wrapper{
     min-height: 100vh !important;
     width: 100vw;
@@ -38,9 +35,13 @@ a{
 .brand-header{
     width: 95%;
     margin-inline:auto;
-    color: white;
-
     margin-block: 0.6em;
+
+}
+.brand-header>a:hover{
+    color: var(--amber-800);
+    text-shadow: 1px 1px var(--amber-200);
+
 }
 @media only screen and (max-width: 768px) {
     .sidebar{
@@ -95,3 +96,4 @@ span.sidebar-menu-nav-title > h6{
     
     align-items: center;
 }
+

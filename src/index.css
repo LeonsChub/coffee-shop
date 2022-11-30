@@ -80,6 +80,10 @@ Link{
 #root{
   background-color: var(--amber-300);
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 
 .main-content{
   background-color:var(--amber-600);

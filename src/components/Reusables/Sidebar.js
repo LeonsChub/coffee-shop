@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Nav } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {BsCart4} from 'react-icons//bs'
 import {MdClear} from 'react-icons//md'
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
@@ -12,7 +12,7 @@ function sidebar() {
     <div className="sidebar">
       <SidebarMenu.Header>
         <SidebarMenu.Brand>
-          <h5 className='brand-header p-3'>Coffee Spot</h5>
+          <h5 className='brand-header p-3' ><Link to='/home'>Coffee Spot</Link></h5>
         </SidebarMenu.Brand>
       </SidebarMenu.Header>
       <SidebarMenu.Body>

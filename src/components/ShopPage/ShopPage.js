@@ -1,8 +1,26 @@
 import { Container, Row, Col } from 'react-bootstrap';
+
 import Sidebar from '../Reusables/Sidebar';
 import ProductCard from '../Reusables/ProductCard/ProductCard';
 
-import productImg1 from '../../images/coffeeBag1.webp';
+import {BsCart4} from 'react-icons//bs'
+
+import PRODUCTS from '../data';
+
+import './shop.css'
+
+function dataToDom(){
+  const domArr = [];
+  PRODUCTS.map((product,index)=>{
+    domArr.push(
+      <Col xs={6} md={4} lg={3} className='my-2' key = {index}>
+          <ProductCard name={product.name} price={product.price}
+                       type={product.coffeeType} url={product.url}/>
+      </Col>
+    )
+  })
+  return domArr;
+}
 
 function ShopPage() {
   return (
@@ -16,34 +34,14 @@ function ShopPage() {
             <Col xs={12} md={9} lg={10} id="content-wrap" className="mt-3">
               <Container fluid>
                 <Row>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
-                  <Col xs={6} md={4} lg={3}>
-                    <ProductCard url={productImg1} />
-                  </Col>
+                  {(dataToDom())}
                 </Row>
               </Container>
             </Col>
           </Row>
+          <button className="sticky-cart-btn mr-0 ml-auto">
+            <BsCart4/>
+          </button>
         </Container>
       </div>
     </div>
