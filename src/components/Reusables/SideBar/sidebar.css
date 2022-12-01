@@ -34,12 +34,12 @@
 }
 .brand-header{
     width: 95%;
-    margin-inline:auto;
-    margin-block: 0.6em;
-
+    margin-inline: auto !important;
+    margin-block: .6em !important;
+    
 }
 .brand-header>a:hover{
-    color: var(--amber-800);
+    color: var(--amber-100);
     text-shadow: 1px 1px var(--amber-200);
 
 }
@@ -53,7 +53,7 @@
         width: calc(25vw);
     }
     .brand-header{
-        margin-block: 1em;
+        margin-block: 1em !important;
     }
 
 }
@@ -97,11 +97,13 @@ span.sidebar-menu-nav-title > h6{
     align-items: center;
 }
 #mark-cart-amount{
-    background-color:#1a24e4;
+    background-color:rgb(0, 30, 255);
+    color: rgb(250, 255, 109);
     font-size: 0.7em;
 
-    width: 14px;
-    height: 14px;
+    width: fit-content;
+    padding-inline: 3px;
+    height: 1.5em;
     margin-left: 6px;
 
     border-radius: 50%;
@@ -109,4 +111,8 @@ span.sidebar-menu-nav-title > h6{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    animation-name: comeToExistence;
+    animation-duration: 1s;
 }
+

@@ -14,7 +14,16 @@ import './sidebar.css';
 function sidebar(props) {
   const dispatch = props.handleState;
   const cart = props.cartData;
-  const orderAmount = cart.length;
+  let totalItems;
+
+  try {
+    totalItems = cart.reduce((totalCount, current) => {
+      totalCount += current.amount;
+      return totalCount;
+    }, 0);
+  } catch (error) {
+    console.log(error);
+  }
 
   return (
     <SidebarMenu xs={0}>
@@ -54,21 +63,22 @@ function sidebar(props) {
               <SidebarMenu.Nav.Title>
                 <h6 className="d-flex justify-content-space-around align-items-center">
                   Shopping Cart
-                  {orderAmount > 0 ? <span id="mark-cart-amount">{orderAmount}</span> : null}
+                  {renderNotEmptyCartCount()}
                 </h6>
               </SidebarMenu.Nav.Title>
             </SidebarMenu.Sub.Toggle>
             <SidebarMenu.Sub.Collapse>
               <SidebarMenu.Nav>
                 <SidebarMenu.Nav.Link className="sub-menu-link">
-                  <SidebarMenu.Nav.Icon>
-                    <BsCart4 />
-                  </SidebarMenu.Nav.Icon>
-                  <SidebarMenu.Nav.Title>
-                    <h6 className="mx-2">Shopping Cart</h6>
-                  </SidebarMenu.Nav.Title>
+                  <Link to="/shopping-cart" className="d-flex align-items-center">
+                    <SidebarMenu.Nav.Icon>
+                      <BsCart4 />
+                    </SidebarMenu.Nav.Icon>
+                    <SidebarMenu.Nav.Title>
+                      <h6 className="mx-2">Shopping Cart</h6>
+                    </SidebarMenu.Nav.Title>
+                  </Link>
                 </SidebarMenu.Nav.Link>
-
                 <SidebarMenu.Nav.Link
                   className="sub-menu-link"
                   onClick={() => dispatch({ type: ACTIONS.clearAllItems })}>
@@ -86,6 +96,10 @@ function sidebar(props) {
       </div>
     </SidebarMenu>
   );
+
+  function renderNotEmptyCartCount() {
+    return totalItems > 0 ? <span id="mark-cart-amount">{totalItems}</span> : null;
+  }
 }
 
 export default sidebar;

@@ -1,0 +1,55 @@
+h1,h2,h3,h4,h5,h6{
+    margin: 0 !important;
+}
+#content{
+    min-height: calc(100vh - 8.5em);
+}
+#reciept{
+    width: clamp(40%,45%,70%);
+    margin-inline: auto;
+
+    background-color: white;
+    padding: 0.75em;
+    
+    margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 1284px){
+    #reciept{
+        width: 70%;
+    }
+}
+
+#recipt > h2{
+    width: max-content;
+    border: 3px solid black;
+    margin-bottom: 0;
+}
+
+.pic-wrap{
+    width: 180px;
+    height: 100%;
+}
+
+#checkout-item{
+    display: flex;
+    padding: 0.5em;
+    background-color: rgb(205, 205, 205);
+
+    border: 1px solid rgb(49, 49, 49);
+    margin-block: 8px;
+}
+
+#checkout-item > .info-wrap{
+    padding-left: 8px;
+    width: 100%;
+    position: relative;
+}
+#total-item-cost{
+    bottom: -4px;
+}
+
+.full-underline{
+    width: 100%;
+    border-bottom: 3px solid var(--bs-dark);
+}

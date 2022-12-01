@@ -5,6 +5,7 @@ import ShopPage from './ShopPage/ShopPage';
 import ProductPage from './productPage/ProductPage';
 
 import { useReducer } from 'react';
+import CartPage from './CartPage/CartPage';
 
 export const ACTIONS = {
   addItemsToCart: 'ADDITEMS',
@@ -34,7 +35,11 @@ function RouteSwitch() {
         <Route path="/Home" element={<FrontPage />} />
         <Route path="/Contact" />
         <Route path="/Shop" element={<ShopPage handleState={dispatch} cartData={state} />} />
-        <Route path="/products/:name" element={<ProductPage handleState={dispatch} />} />
+        <Route path="/Products/:name" element={<ProductPage handleState={dispatch} />} />
+        <Route
+          path="/shopping-cart"
+          element={<CartPage handleState={dispatch} cartData={state} />}
+        />
       </Routes>
       <div className="footer p-2 text-light">Leon Pavlenko 2022</div>
     </BrowserRouter>
