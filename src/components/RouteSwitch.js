@@ -7,13 +7,16 @@ import ProductPage from './productPage/ProductPage';
 import { useReducer } from 'react';
 
 export const ACTIONS = {
-  addItemsToCart: 'ADDITEMS'
+  addItemsToCart: 'ADDITEMS',
+  clearAllItems: 'CLEAR'
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.addItemsToCart:
-      return [...state, { itemName: 'COFFEE', price: 9.49 }];
+      return [...state, action.payload];
+    case ACTIONS.clearAllItems:
+      return [];
 
     default:
       break;
@@ -30,7 +33,7 @@ function RouteSwitch() {
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<FrontPage />} />
         <Route path="/Contact" />
-        <Route path="/Shop" element={<ShopPage />} />
+        <Route path="/Shop" element={<ShopPage handleState={dispatch} cartData={state} />} />
         <Route path="/products/:name" element={<ProductPage handleState={dispatch} />} />
       </Routes>
       <div className="footer p-2 text-light">Leon Pavlenko 2022</div>

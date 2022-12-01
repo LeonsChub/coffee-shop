@@ -1,15 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-
-import {BsExclamationCircle as WarningSVG} from 'react-icons//bs'
-
-console.log(WarningSVG);
+import { BsExclamationCircle as WarningSVG } from 'react-icons//bs';
 
 import PRODUCTS from '../data';
 import { ACTIONS } from '../RouteSwitch';
@@ -24,55 +21,51 @@ function filterByName(product, name) {
 }
 
 const renderWarnOverlay = (props) => (
-  <Tooltip id="button-tooltip" {...props}>
+  <Tooltip id="button-tooltip" {...props} className="warn-overlay">
     Please enter an amount greater than 0.
   </Tooltip>
-)
+);
 
 function ProductPage(props) {
-  const handleAddCart = props.handleState;
+  const dispatch = props.handleState;
   const [itemAmount, setItemAmount] = useState(0);
 
   const params = useParams();
-  const [productToDom] = PRODUCTS.filter((product) => filterByName(product, params.name));
-  const [warn,setWarn] = useState(false);
+  const [productData] = PRODUCTS.filter((product) => filterByName(product, params.name));
+  const [warn, setWarn] = useState(false);
 
-  function conditionalRenderWarning(){
-    if(warn){
+  const navigate = useNavigate();
+
+  function conditionalRenderWarning() {
+    if (warn) {
       return (
-        <OverlayTrigger
-            placement='top'
-            overlay={renderWarnOverlay}>
-
-              <span id="warning">
-                <WarningSVG className=''/>
-              </span>
-
-        </OverlayTrigger>);
-      }
-    else{
+        <OverlayTrigger placement="top" delay={{ hide: 400 }} overlay={renderWarnOverlay}>
+          <span id="warning">
+            <WarningSVG className="" />
+          </span>
+        </OverlayTrigger>
+      );
+    } else {
       return null;
     }
   }
-  
 
   return (
     <div id="product-content-wrap" className="d-flex align-items-center flex-column">
       <div className="split d-flex justify-content-center">
         <div className="product-img">
-          <img src={productToDom.url} alt="" />
+          <img src={productData.url} alt="" />
         </div>
         <div className="product-description">
-          <h4 className="product-heading"> {productToDom.name}</h4>
+          <h4 className="product-heading"> {productData.name}</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quos totam asperiores
             distinctio odit incidunt sit nesciunt, ex sed commodi.
           </p>
 
           <div className="cart-add-wrap">
-            
             {conditionalRenderWarning()}
-            
+
             <button
               id="detract-from-cart"
               onClick={() => {
@@ -97,10 +90,13 @@ function ProductPage(props) {
               className="text-light"
               onClick={() => {
                 if (itemAmount > 0) {
-                  handleAddCart({ type: ACTIONS.addItemsToCart });
+                  dispatch({
+                    type: ACTIONS.addItemsToCart,
+                    payload: { amount: itemAmount, item: productData }
+                  });
                   setItemAmount(0);
-                }
-                else{
+                  navigate(-1);
+                } else {
                   setWarn(true);
                 }
               }}>

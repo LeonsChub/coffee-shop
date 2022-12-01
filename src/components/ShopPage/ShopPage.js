@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Container, Row, Col } from 'react-bootstrap';
 
 import Sidebar from '../Reusables/SideBar/Sidebar';
@@ -26,14 +27,14 @@ function dataToDom() {
   return domArr;
 }
 
-function ShopPage() {
+function ShopPage(props) {
   return (
     <div>
       <div className="main-content">
         <Container fluid>
           <Row>
             <Col xs={0} md={3} lg={2} id="sidebar-wrap" className="p-0">
-              <Sidebar />
+              <Sidebar handleState={props.handleState} cartData={props.cartData} />
             </Col>
             <Col xs={12} md={9} lg={10} id="content-wrap" className="mt-3">
               <Container fluid>
