@@ -4,7 +4,7 @@ import './cart.css'
 import CheckoutItem from './CheckoutItem/CheckoutItem';
 import { useNavigate } from 'react-router-dom';
 
-import ACTIONS from '../RouteSwitch'
+import {ACTIONS} from '../RouteSwitch'
 
 function CartPage(props) {
   // eslint-disable-next-line no-unused-vars
@@ -22,7 +22,7 @@ function CartPage(props) {
   return (
     <section id="content">
         <div id='reciept' className='mt-3'>
-            <h2 className='text-decoration-underline'>Your total is: {getTotalCost}$.</h2>
+            <h2 className='text-decoration-underline'>Your total is: {Math.round(getTotalCost*100)/100}$.</h2>
             {cartData.map((val,index)=>{
                 return <CheckoutItem key={index} orderData ={val}>{val.item.name}</CheckoutItem>
             })}
@@ -30,10 +30,11 @@ function CartPage(props) {
             <div className="checkout-btn-wrap d-flex justify-content-end">
                 <Button variant='danger'
                         className='mx-2'
-                        onClick = {()=>{
-                                        dispatch({type:ACTIONS.clearAllItems})
-                                        navigate('/Shop');
-                                        }}>
+                        onClick = {() => {
+                                        console.log(ACTIONS)
+                                        dispatch({ type: ACTIONS.clearAllItems })
+                                        navigate('/Shop');    
+                                    }}>
                             Clear Cart
                             </Button>
                 <Button variant='success'>Checkout</Button>

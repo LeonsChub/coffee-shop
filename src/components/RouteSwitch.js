@@ -17,6 +17,7 @@ function reducer(state, action) {
     case ACTIONS.addItemsToCart:
       return [...state, action.payload];
     case ACTIONS.clearAllItems:
+      console.log('clearing...');
       return [];
 
     default:
@@ -27,9 +28,12 @@ function reducer(state, action) {
 function RouteSwitch() {
   // eslint-disable-next-line no-unused-vars
   const [state, dispatch] = useReducer(reducer, []);
+
+
   return (
     <BrowserRouter>
       <NavHeader />
+      
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<FrontPage />} />

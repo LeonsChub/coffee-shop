@@ -22,7 +22,7 @@ function sidebar(props) {
       return totalCount;
     }, 0);
   } catch (error) {
-    console.log(error);
+    totalItems = 0;
   }
 
   return (
@@ -57,48 +57,52 @@ function sidebar(props) {
             </SidebarMenu.Nav.Title>
           </SidebarMenu.Nav.Link>
           <SidebarMenu.Nav />
-          <SidebarMenu.Sub>
-            <SidebarMenu.Sub.Toggle className="sidebar-link retractable">
-              <SidebarMenu.Nav.Icon />
-              <SidebarMenu.Nav.Title>
-                <h6 className="d-flex justify-content-space-around align-items-center">
-                  Shopping Cart
-                  {renderNotEmptyCartCount()}
-                </h6>
-              </SidebarMenu.Nav.Title>
-            </SidebarMenu.Sub.Toggle>
-            <SidebarMenu.Sub.Collapse>
-              <SidebarMenu.Nav>
-                <SidebarMenu.Nav.Link className="sub-menu-link">
-                  <Link to="/shopping-cart" className="d-flex align-items-center">
-                    <SidebarMenu.Nav.Icon>
-                      <BsCart4 />
-                    </SidebarMenu.Nav.Icon>
-                    <SidebarMenu.Nav.Title>
-                      <h6 className="mx-2">Shopping Cart</h6>
-                    </SidebarMenu.Nav.Title>
-                  </Link>
-                </SidebarMenu.Nav.Link>
-                <SidebarMenu.Nav.Link
-                  className="sub-menu-link"
-                  onClick={() => dispatch({ type: ACTIONS.clearAllItems })}>
-                  <SidebarMenu.Nav.Icon>
-                    <MdClear />
-                  </SidebarMenu.Nav.Icon>
-                  <SidebarMenu.Nav.Title>
-                    <h6 className="mx-2">Clear Cart</h6>
-                  </SidebarMenu.Nav.Title>
-                </SidebarMenu.Nav.Link>
-              </SidebarMenu.Nav>
-            </SidebarMenu.Sub.Collapse>
-          </SidebarMenu.Sub>
+          {totalItems > 0 ? renderSubMenu() : null}
         </SidebarMenu.Body>
       </div>
     </SidebarMenu>
   );
 
-  function renderNotEmptyCartCount() {
-    return totalItems > 0 ? <span id="mark-cart-amount">{totalItems}</span> : null;
+  function renderSubMenu() {
+    return (
+      <>
+        <SidebarMenu.Sub>
+          <SidebarMenu.Sub.Toggle className="sidebar-link retractable">
+            <SidebarMenu.Nav.Icon />
+            <SidebarMenu.Nav.Title>
+              <h6 className="d-flex justify-content-space-around align-items-center">
+                Shopping Cart
+                {totalItems > 0 ? <span id="mark-cart-amount">{totalItems}</span> : null}
+              </h6>
+            </SidebarMenu.Nav.Title>
+          </SidebarMenu.Sub.Toggle>
+          <SidebarMenu.Sub.Collapse>
+            <SidebarMenu.Nav>
+              <SidebarMenu.Nav.Link className="sub-menu-link">
+                <Link to="/shopping-cart" className="d-flex align-items-center">
+                  <SidebarMenu.Nav.Icon>
+                    <BsCart4 />
+                  </SidebarMenu.Nav.Icon>
+                  <SidebarMenu.Nav.Title>
+                    <h6 className="mx-2">Shopping Cart</h6>
+                  </SidebarMenu.Nav.Title>
+                </Link>
+              </SidebarMenu.Nav.Link>
+              <SidebarMenu.Nav.Link
+                className="sub-menu-link"
+                onClick={() => dispatch({ type: ACTIONS.clearAllItems })}>
+                <SidebarMenu.Nav.Icon>
+                  <MdClear />
+                </SidebarMenu.Nav.Icon>
+                <SidebarMenu.Nav.Title>
+                  <h6 className="mx-2">Clear Cart</h6>
+                </SidebarMenu.Nav.Title>
+              </SidebarMenu.Nav.Link>
+            </SidebarMenu.Nav>
+          </SidebarMenu.Sub.Collapse>
+        </SidebarMenu.Sub>
+      </>
+    );
   }
 }
 
